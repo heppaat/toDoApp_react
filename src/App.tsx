@@ -47,6 +47,7 @@ function App() {
       </div>
       <div>
         <input
+          className="border-4"
           type="text"
           placeholder="What to do"
           value={input}
