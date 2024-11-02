@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { toDo } from "./type";
+import { Button } from "@radix-ui/themes";
 
 import "./App.css";
-import Checkbox from "./Components/Checkbox";
+import CheckboxComp from "./Components/CheckboxComp";
 
 function App() {
   const [toDo, setToDo] = useState<toDo[]>([]);
@@ -53,13 +54,15 @@ function App() {
           value={input}
           onChange={(e) => setInput(e.target.value.trimStart())}
         />
-        <button onClick={handleAddToDoList}>Add</button>
+        <Button size="3" variant="surface" onClick={handleAddToDoList}>
+          Add
+        </Button>
       </div>
       {!error && (
         <div>
           {toDo.map((listItem, index) => (
             <div key={index} className="flex">
-              <Checkbox
+              <CheckboxComp
                 checked={listItem.isComplete}
                 onChange={() => handleComplete(index)}
               />
