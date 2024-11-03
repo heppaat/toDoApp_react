@@ -48,7 +48,8 @@ function App() {
       </div>
       <div className="flex justify-center items-center space-x-10">
         <input
-          className="rounded-md border-2 border-gray-300 px-4 py-2 focus:ring focus:ring-teal-500 focus:outline-none"
+          className="rounded-md border-2 border-gray-200 transition-colors
+               bg-gray-100 hover:bg-gray-200 px-4 py-2 focus:ring focus:ring-teal-500 focus:outline-none"
           type="text"
           placeholder="What to do..."
           value={input}
@@ -71,14 +72,18 @@ function App() {
                 checked={listItem.isComplete}
                 onChange={() => handleComplete(index)}
               />
-              <p className="text-[#F9F6EE] uppercase font-bold ">
+              <p className="text-[#F9F6EE] uppercase font-bold">
                 {listItem.text}
               </p>
             </div>
           ))}
         </div>
       )}
-      {error && <p>{error}</p>}
+      {error && (
+        <div className="flex justify-center mt-20">
+          <p className="text-[#F9F6EE] uppercase font-bold">{error}</p>
+        </div>
+      )}
     </div>
   );
 }
